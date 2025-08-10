@@ -1,14 +1,14 @@
 'use client'
 
 import React, { createContext, useContext, useState, useEffect } from 'react'
-import { User, SalaryConfig } from '@/lib/types'
+import { User, SalaryConfig, SubdomainInfo } from '@/lib/types'
 import { UserService } from '@/lib/userService'
 import { SubdomainUtils } from '@/lib/subdomainUtils'
 
 interface UserContextType {
   user: User | null
   isSubdomainRoute: boolean
-  subdomainInfo: any
+  subdomainInfo: SubdomainInfo | null
   updateSalaryConfig: (config: Partial<SalaryConfig>) => void
   createUser: (username: string, email?: string) => User
   setCurrentUser: (user: User) => void
@@ -19,7 +19,7 @@ const UserContext = createContext<UserContextType | undefined>(undefined)
 export function UserProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [isSubdomainRoute, setIsSubdomainRoute] = useState(false)
-  const [subdomainInfo, setSubdomainInfo] = useState<any>(null)
+  const [subdomainInfo, setSubdomainInfo] = useState<SubdomainInfo | null>(null)
 
   useEffect(() => {
     // 检查是否是子域名路由

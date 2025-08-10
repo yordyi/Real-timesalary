@@ -65,7 +65,7 @@ export default function SalaryTracker() {
     }
   }, [user, language, isSubdomainRoute])
 
-  const handleConfigChange = (key: string, value: any) => {
+  const handleConfigChange = (key: string, value: number | string) => {
     if (user && updateSalaryConfig) {
       updateSalaryConfig({ [key]: value })
     }

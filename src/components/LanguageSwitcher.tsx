@@ -6,7 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { Language } from '@/lib/translations'
 
 export function LanguageSwitcher() {
-  const { language, setLanguage, t } = useLanguage()
+  const { language, setLanguage } = useLanguage()
 
   const handleLanguageChange = (newLanguage: Language) => {
     setLanguage(newLanguage)
