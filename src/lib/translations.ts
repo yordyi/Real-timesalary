@@ -33,6 +33,10 @@ export interface Translations {
     chinese: string
     english: string
   }
+  demo: {
+    enable: string
+    enabled: string
+  }
 }
 
 export const translations: Record<Language, Translations> = {
@@ -68,6 +72,10 @@ export const translations: Record<Language, Translations> = {
       switch: '切换语言',
       chinese: '中文',
       english: 'English'
+    },
+    demo: {
+      enable: '⚪ 点击开启演示',
+      enabled: '🟢 演示模式开启'
     }
   },
   en: {
@@ -102,6 +110,10 @@ export const translations: Record<Language, Translations> = {
       switch: 'Switch Language',
       chinese: '中文',
       english: 'English'
+    },
+    demo: {
+      enable: '⚪ Enable Demo Mode',
+      enabled: '🟢 Demo Mode Active'
     }
   }
 }

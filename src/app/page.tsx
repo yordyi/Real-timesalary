@@ -173,7 +173,7 @@ export default function SalaryTracker() {
                   : 'bg-white/70 text-amber-700 border border-amber-200 hover:bg-white/90'
               }`}
             >
-              {demoMode ? '🟢 演示模式开启' : '⚪ 点击开启演示'}
+              {demoMode ? t.demo.enabled : t.demo.enable}
             </motion.button>
           </div>
         </motion.div>
