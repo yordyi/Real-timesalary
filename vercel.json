@@ -7,11 +7,11 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/",
+      "destination": "/$1",
       "has": [
         {
           "type": "host",
-          "value": "(?<subdomain>.*)\\.real-timesalary\\.wanderhubt\\.com"
+          "value": "(?<subdomain>[^.]+)\\.real-timesalary\\.wanderhubt\\.com"
         }
       ]
     }
@@ -21,16 +21,15 @@
       "source": "/(.*)",
       "headers": [
         {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ],
-      "has": [
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
         {
-          "type": "host",
-          "value": "(?<subdomain>.*)\\.real-timesalary\\.wanderhubt\\.com"
+          "key": "X-Subdomain-Support",
+          "value": "enabled"
         }
       ]
     }
-  ]
+  ],
+  "wildcardDomain": true
 }
