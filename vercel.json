@@ -1,0 +1,36 @@
+{
+  "functions": {
+    "app/api/**/*.js": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?<subdomain>.*)\\.real-timesalary\\.wanderhubt\\.com"
+        }
+      ]
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ],
+      "has": [
+        {
+          "type": "host",
+          "value": "(?<subdomain>.*)\\.real-timesalary\\.wanderhubt\\.com"
+        }
+      ]
+    }
+  ]
+}
