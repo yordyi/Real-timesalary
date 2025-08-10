@@ -34,8 +34,20 @@ function getSubdomain(host: string): string | null {
     return null
   }
   
-  // 处理生产环境
+  // 处理生产环境 - 支持多级域名
   const parts = host.split('.')
+  
+  // 检查是否为 real-timesalary.wanderhubt.com 或其子域名
+  if (host.includes('wanderhubt.com')) {
+    // 如果是 subdomain.real-timesalary.wanderhubt.com 格式
+    if (parts.length >= 4 && parts[parts.length-3] === 'real-timesalary' && parts[parts.length-2] === 'wanderhubt') {
+      return parts[0]
+    }
+    // 如果是 real-timesalary.wanderhubt.com (主域名)
+    return null
+  }
+  
+  // 其他域名的标准处理
   if (parts.length >= 3) {
     return parts[0]
   }
