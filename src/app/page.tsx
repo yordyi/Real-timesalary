@@ -7,6 +7,8 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { useUser } from '@/contexts/UserContext'
 import { LanguageSwitcher } from '@/components/LanguageSwitcher'
 import { UserAuth } from '@/components/UserAuth'
+import { SubdomainDebug } from '@/components/SubdomainDebug'
+import { AdminPanel } from '@/components/AdminPanel'
 
 interface CoinProps {
   id: number;
@@ -143,6 +145,7 @@ export default function SalaryTracker() {
       
       <LanguageSwitcher />
       <UserAuth />
+      <AdminPanel />
       
       <AnimatePresence>
         {coins.map(coinId => (
@@ -315,6 +318,8 @@ export default function SalaryTracker() {
       </div>
 
       <div className="fixed bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-yellow-100/80 to-transparent pointer-events-none" />
+      
+      <SubdomainDebug />
     </div>
   )
 }
